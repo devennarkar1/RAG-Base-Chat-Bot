@@ -1,0 +1,25 @@
+# --- Core Backend ---
+fastapi==0.135.3
+uvicorn==0.43.0
+python-dotenv==1.2.2
+pydantic[email]==2.12.5
+email-validator
+httpx==0.28.1
+
+# --- LangChain Ecosystem (Stable 0.2.x Branch) ---
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-core==0.2.38
+langchain-groq==0.1.9
+langchain-huggingface==0.0.3
+langchain-text-splitters==0.2.4
+langchain-experimental
+
+# --- AI & Vector Search ---
+faiss-cpu
+sentence-transformers
+rank-bm25
+
+# --- Math & Data ---
+numpy<2.0.0
+pandas  # Usually needed if you're handling datasets for Ragas

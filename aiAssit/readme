@@ -1,0 +1,221 @@
+“I built a FastAPI-based AI assistant with LLM integration, session-based memory, and MongoDB persistence. It supports multi-user conversations and scalable architecture.”
+
+# 🤖 AI Assistant Backend (FastAPI + Groq + MongoDB)
+
+## 📌 Overview
+
+This project is a **ChatGPT-like AI Assistant Backend** built using FastAPI.
+It supports:
+
+- Real-time AI responses using Groq (LLaMA models)
+- Session-based chat memory
+- Persistent storage using MongoDB
+- REST API endpoints for integration with frontend apps
+
+---
+
+## 🚀 Features
+
+- ⚡ Fast AI responses using Groq API
+- 🧠 Chat memory with session tracking
+- 💾 Persistent storage using MongoDB
+- 🔄 Context-aware conversations
+- 📡 RESTful API (FastAPI)
+- 🔐 Environment-based configuration
+
+---
+
+## 🛠️ Tech Stack
+
+- **Backend Framework:** FastAPI
+- **LLM Provider:** Groq (LLaMA 3.3)
+- **Database:** MongoDB
+- **Language:** Python
+- **Libraries:**
+  - requests
+  - python-dotenv
+  - pymongo
+  - groq
+
+---
+
+## 📂 Project Structure
+
+```
+aiAssit/
+│
+├── app/
+│   ├── main.py        # FastAPI app (routes)
+│   ├── llm.py         # Groq API integration
+│   ├── db.py          # MongoDB connection
+│
+├── .env               # Environment variables
+├── requirements.txt   # Dependencies
+└── README.md
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the repository
+
+```
+git clone <your-repo-url>
+cd aiAssit
+```
+
+---
+
+### 2️⃣ Create virtual environment
+
+```
+python -m venv venv
+venv\Scripts\activate
+```
+
+---
+
+### 3️⃣ Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+### 4️⃣ Setup environment variables
+
+Create `.env` file:
+
+```
+GROQ_API_KEY=your_groq_api_key
+MONGO_URI=your_mongodb_connection_string
+```
+
+---
+
+### 5️⃣ Run the server
+
+```
+uvicorn app.main:app --reload
+```
+
+Server will run at:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🔹 Health Check
+
+```
+GET /health
+```
+
+Response:
+
+```
+{ "status": "ok" }
+```
+
+---
+
+### 🔹 Chat Endpoint
+
+```
+POST /chat
+```
+
+#### Request:
+
+```
+{
+  "message": "Hello"
+}
+```
+
+#### Response:
+
+```
+{
+  "session_id": "unique-id",
+  "response": "Hello! How can I help you?"
+}
+```
+
+---
+
+### 🔹 Continue Conversation
+
+```
+{
+  "message": "What is my name?",
+  "session_id": "same-id"
+}
+```
+
+---
+
+## 🧠 How Memory Works
+
+- Each user gets a **unique session_id**
+- Messages are stored in MongoDB:
+
+```
+{
+  "session_id": "abc123",
+  "messages": [
+    {"role": "user", "content": "..."},
+    {"role": "assistant", "content": "..."}
+  ]
+}
+```
+
+- When user sends request with same session_id:
+  - Previous chat is loaded
+  - AI responds with context
+
+---
+
+## 💡 Future Improvements
+
+- 🌐 Frontend UI (React / Next.js)
+- 🔐 User Authentication (Login system)
+- 📜 Chat history UI
+- 🧠 Advanced memory (vector DB)
+- 🔎 Tool integration (search, calculator)
+- ☁️ Deployment (Render / AWS / Railway)
+
+---
+
+## 🎯 Use Cases
+
+- AI Chatbot
+- Customer Support Bot
+- Personal Assistant
+- Educational AI Tool
+- API for AI-powered apps
+
+---
+
+## 🏆 What I Learned
+
+- Building scalable FastAPI backend
+- Integrating LLM APIs (Groq)
+- Handling API failures and debugging
+- Managing session-based memory
+- Working with MongoDB
+- Designing production-ready APIs
+
+---
+
+## 📬 Contact
+
+If you like this project or want to collaborate, feel free to connect!
+
+---
